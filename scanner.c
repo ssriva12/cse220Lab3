@@ -1,3 +1,7 @@
+/* Name: Sarthak Srivastava */
+/* ASU ID - 1204952381 */
+/* Name: Jayesh Nair */
+/* ASU ID - 1204730340 */
 
 #include <stdio.h>
 #include "scanner.h"
