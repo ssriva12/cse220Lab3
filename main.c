@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include "common.h"
 #include "print.h"
@@ -37,4 +36,26 @@ void add_token_to_list(Token *list, Token *new_token)
     last = last->next;
 
   last->next = new_token;
+}
+void quit_scanner(FILE *src_file, Token *list)
+{
+    /*write code to free all of the memory for the token list*/
+    Token* temp = list;
+    fclose(src_file);
+    while(list->next != NULL)
+    {
+        list = list->next;
+        free_token(temp);
+    }
+}
+FILE *init_lister(const char *name, char source_file_name[], char dte[])
+{
+    time_t timer;
+    FILE *file;
+    
+    strcpy(source_file_name, name);
+    file = fopen(source_file_name, "r");
+    time(&timer);
+    strcpy(dte, asctime(localtime(&timer)));
+    return file;
 }
